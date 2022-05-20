@@ -6,15 +6,15 @@ from datetime import date
 class TestAddExamPoints(unittest.TestCase):
     
     def test_1(self): # correct add(One object)
-        st = Student(172544, 'Петров Петр Петрович')
+        st = Student(172544, 'Алексеев Алексей Алексеевич')
         examPo = ExamPoints(st, 55.5, 30.0)
         inst = Institute()
         inst.add_examPoints(examPo)
         self.assertEqual(len(inst.exam_points), 1)
         
     def test_2(self): # correct add(Two objects)
-        st1 = Student(172544, 'Петров Петр Петрович')
-        st2 = Student(199999, "Иванов Иван Иванович")
+        st1 = Student(172544, 'Алексеев Алексей Алексеевич')
+        st2 = Student(172588, "Иванов Иван Иванович")
         examPo1 = ExamPoints(st1, 55.5, 30.0)
         examPo2 = ExamPoints(st2, 40.0, 25.0)
         inst = Institute()
@@ -23,7 +23,7 @@ class TestAddExamPoints(unittest.TestCase):
         self.assertEqual(len(inst.exam_points), 2)
         
     def test_3(self): # incorrect add(Existing object)
-        st = Student(172544, 'Петров Петр Петрович')
+        st = Student(172544, 'Алексеев Алексей Алексеевич')
         examPo = ExamPoints(st, 55.5, 30.0)
         inst = Institute()
         with self.assertRaises(Exception) as context:
@@ -48,7 +48,7 @@ class TestAddExamPoints(unittest.TestCase):
         self.assertEqual(len(inst.exam_points), 0)
         
     def test_6(self): # incorrect add(Wrong in points)
-        st = Student(172544, 'Петров Петр Петрович')
+        st = Student(172544, 'Алексеев Алексей Алексеевич')
         examPo = ExamPoints(st, -10., 30.0)
         inst = Institute()
         with self.assertRaises(Exception) as context:
@@ -57,7 +57,7 @@ class TestAddExamPoints(unittest.TestCase):
         self.assertEqual(len(inst.exam_points), 0)
         
     def test_7(self): # incorrect add(Wrong exam points)
-        st = Student(172544, 'Петров Петр Петрович')
+        st = Student(172544, 'Алексеев Алексей Алексеевич')
         examPo = ExamPoints(st, 55.5, -10.)
         inst = Institute()
         with self.assertRaises(Exception) as context:
@@ -66,7 +66,7 @@ class TestAddExamPoints(unittest.TestCase):
         self.assertEqual(len(inst.exam_points), 0)
         
     def test_8(self): # incorrect add(Wrong in points type)
-        st = Student(172544, 'Петров Петр Петрович')
+        st = Student(172544, 'Алексеев Алексей Алексеевич')
         examPo = ExamPoints(st, "55.5", -10.)
         inst = Institute()
         with self.assertRaises(Exception) as context:
@@ -75,7 +75,7 @@ class TestAddExamPoints(unittest.TestCase):
         self.assertEqual(len(inst.exam_points), 0)
     
     def test_9(self): # incorrect add(Wrong exam points type)
-        st = Student(172544, 'Петров Петр Петрович')
+        st = Student(172544, 'Алексеев Алексей Алексеевич')
         examPo = ExamPoints(st, 55.5, "10.0")
         inst = Institute()
         with self.assertRaises(Exception) as context:

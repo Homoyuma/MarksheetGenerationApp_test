@@ -6,8 +6,8 @@ from institute import Institute
 class TestGeneration(unittest.TestCase):
     
     def test_student_class(self):
-        st = Student(172544, 'Филиппов Петр')
-        self.assertEqual('Филиппов Петр', st.fio)
+        st = Student(172544, 'Степанов Айсиэн')
+        self.assertEqual('Степанов Айсиэн', st.fio)
         self.assertEqual(172544, st.code)
         
     def test_group_class(self):
@@ -28,9 +28,9 @@ class TestGeneration(unittest.TestCase):
         self.assertEqual("Эверстов Владимир Васильевич", exam.lecturer_fio)
         
     def test_exampoints_class(self):
-        st = Student(172544, 'Филиппов Петр')
+        st = Student(172544, 'Степанов Айсиэн')
         examPo = ExamPoints(st, 55.5, 30.0)
-        self.assertEqual('Филиппов Петр', examPo.student.fio)
+        self.assertEqual('Степанов Айсиэн', examPo.student.fio)
         self.assertEqual(55.5, examPo.inPoints)
         self.assertEqual(30.0, examPo.examPoints)
         

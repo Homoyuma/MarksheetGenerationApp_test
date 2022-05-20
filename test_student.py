@@ -5,21 +5,21 @@ from main import Student
 class TestAddStudent(unittest.TestCase):
     
     def test_1(self): # correct add(One object)
-        st = Student(172544, 'Филиппов Петр')
+        st = Student(172544, 'Степанов Айсиэн')
         inst = Institute()
         inst.add_student(st)
         self.assertEqual(len(inst.students), 1)
         
     def test_2(self): # correct add(Two objects)
-        st1 = Student(172544, 'Филиппов Петр Петрович')
-        st2 = Student(199999, "Егоров Айтал Никитич")
+        st1 = Student(172544, 'Степанов Айсиэн Виссарионович')
+        st2 = Student(172588, "Кычкин Алексей Иванович")
         inst = Institute()
         inst.add_student(st1)
         inst.add_student(st2)
         self.assertEqual(len(inst.students), 2)
         
     def test_3(self): # incorrect add(Existing object)
-        st = Student(172544, 'Филиппов Петр')
+        st = Student(172544, 'Степанов Айсиэн')
         inst = Institute()
         with self.assertRaises(Exception) as context:
             inst.add_student(st)
@@ -35,8 +35,8 @@ class TestAddStudent(unittest.TestCase):
         self.assertEqual(len(inst.students), 0)
         
     def test_5(self): # incorrect add(Existing student code)
-        st1 = Student(172544, 'Филиппов Петр Петрович')
-        st2 = Student(172544, "Егоров Айтал Никитич")
+        st1 = Student(172544, 'Степанов Айсиэн Виссарионович')
+        st2 = Student(172544, "Кычкин Алексей Иванович")
         inst = Institute()
         with self.assertRaises(Exception) as context:
             inst.add_student(st1)
@@ -52,7 +52,7 @@ class TestAddStudent(unittest.TestCase):
         self.assertEqual(len(inst.students), 0)
     
     def test_7(self): # incorrect type(Wrong student code)
-        st = Student(1000, 'Филиппов Петр')
+        st = Student(1000, 'Степанов Айсиэн')
         inst = Institute()
         with self.assertRaises(Exception) as context:
             inst.add_student(st)
@@ -72,7 +72,7 @@ class TestGetStudent(unittest.TestCase):
     
     @classmethod
     def setUpClass(cls):
-        cls._stud = Student(172544, 'Иванов Иван Иванович')
+        cls._stud = Student(172544, 'Алексеев Алексей Алексеевич')
         cls._inst = Institute()
         cls._inst.add_student(cls._stud)
     
